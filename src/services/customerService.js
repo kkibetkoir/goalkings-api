@@ -59,8 +59,14 @@ async function appendNewEmailsToCsv() {
     }
 
     // 2. Fetch all document IDs from Firestore
-    const docRefs = await db.collection(COLLECTION).listDocuments();
-    const fetchedEmails = docRefs.map((doc) => doc.id);
+    //const docRefs = await db.collection(COLLECTION).listDocuments();
+    //const fetchedEmails = docRefs.map((doc) => doc.id);
+    
+    // 2. Fetch all documents from Firestore
+    const snapshot = await db.collection("contacts").get();
+    const fetchedEmails = snapshot.docs
+      .map((doc) => doc.data().email)
+      .filter(Boolean);
 
     // 3. Filter out any emails that already exist in the CSV
     const newEmails = fetchedEmails.filter(
