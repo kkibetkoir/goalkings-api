@@ -200,7 +200,9 @@ Would you like to:
 • Remove emails from the CSV if a user was deleted from Firestore?
 
 
-# Q4 To rearrange the emails alphabetically in your CSV file, read the file, separate the email header, sort the remaining rows using .sort(), and overwrite the file.
+# Q4 another new function to rearrange the emails alphabetically
+
+To rearrange the emails alphabetically in your CSV file, read the file, separate the email header, sort the remaining rows using .sort(), and overwrite the file.
 Here is a standalone function you can call whenever you want to sort user-emails.csv (for example, right after appendNewEmailsToCsv() finishes):
 ```javascript
 const fs = require('fs');
